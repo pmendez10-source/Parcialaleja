@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Práctico - Diseño Web 1</title>
+    <!--recuerden vincular el archivo css con la ruta correspondiente-->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="container">
+        
+        <nav class="card nav-section">
+            <a href="#" class="link-inicio">Inicio</a>
+            <a href="https://github.com/EduardoVargasAlvarez" target="_blank" class="btn-github">Ver mi GitHub</a>
+            <button id="darkModeBtn">🌙 Modo Oscuro</button>
+        </nav>
+
+        <header class="card profile-section">
+            <div class="foto-perfil-wrapper">
+                <img src="img/fotomia.jpg" alt="Mi Foto" class="profile-img">
+            </div>
+            <h2>Mi Perfil Profesional</h2>
+            <p class="description">
+                En esta carrera he aprendido a interpretar el código desde una perspectiva visual, 
+                a construir la atmósfera de una web y a transformar el diseño en experiencias concretas a través de su ejecución.
+
+            </p>
+        </header>
+
+        <section class="card">
+            <h3>Mis Hobbies</h3>
+            <p>Me gusta mucho ver peliculas, hacer ejercicio y seguir aprendiendo mas de mi carrera.
+            </p>
+        </section>
+
+        <section class="card software-section">
+            <h3>Software de Diseño que manejo</h3>
+            <div class="software-grid">
+                
+                <div class="software-item">
+                    <img src="img/Adobe_Photoshop_CC_icon.svg.png" alt="Icono PS" class="software-icon">
+                    <span class="software-name">Photoshop</span>
+                </div>
+                
+                <div class="software-item">
+                    <img src="img/icono-software-adobe-illustrator_539007-181.jpg.avif" alt="Icono AI" class="software-icon">
+                    <span class="software-name">Illustrator</span>
+                </div>
+                
+                <div class="software-item">
+                    <img src="img/Figma-logo.svg" alt="Icono Figma" class="software-icon">
+                    <span class="software-name">Figma</span>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="card">
+            <h3>Lo que más me gusta de mi Carrera</h3>
+            <ol class="lista-custom">
+                <li>Análisis de tendencias.</li>
+                <li>Creación de contenido digital.</li>
+                <li>Estrategias creativas e ideas innovadoras.</li>
+            </ol>
+        </section>
+
+        <section class="card highlight">
+            <h3>¿Qué más quiero aprender de Diseño Web?</h3>
+            <p>Me gustaria mucho aprender de creaciones web, animaciones entre otras .</p>
+        </section>
+
+        <section class="card opinion-section">
+            <h3>Opinión sobre el teacher</h3>
+            <p>""El profesor ha demostrado tener empatia ya que no es una clase tan facil, demuestra total dominio de los temas que nos enseña y es muy amable en la forma de explicar""</p>
+            
+            <div class="firma-wrapper">
+                <p>Atentamente:Atentamente: la mejor alumna que puede tener el profe, alumna que quiere pasar el examen gracias a las enseñanzas del profesor/p>
+                <img src="img/firma.png" alt="Firma del estudiante" class="firma-img">
+                <p class="profe-name">Prof. [Alejandra mendez]</p>
+            </div>
+        </section>
+
+        <footer class="card footer-section">
+            <p>Sígueme en mis redes:</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/alejamendezzc?igsh=am1lN214Zmk2ZXBy&utm_source=qr" class="social-link">Instagram</a>
+                <a href="https://www.tiktok.com/@alejandraw_m?_r=1&_t=ZS-94pNnaR3wkm" class="social-link">TikTok</a>
+            </div>
+        </footer>
+
+    </div>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  // Selecciona todas las tarjetas
+  const hiddenElements = document.querySelectorAll('.card');
+  hiddenElements.forEach((el) => {
+    el.classList.add('hidden'); // Añade la clase oculta inicialmente
+    observer.observe(el);
+  });
+</script>
+<script>
+  const fecha = new Date();
+  const hora = fecha.getHours();
+  let saludo;
+
+  if (hora >= 6 && hora < 12) {
+    saludo = "¡Buenos días! 🌅";
+  } else if (hora >= 12 && hora < 18) {
+    saludo = "¡Buenas tardes! ☕";
+  } else {
+    saludo = "¡Buenas noches! 🌙";
+  }
+
+  // Cambia el texto del H2 en la sección de perfil
+  document.querySelector('.profile-section h2').textContent = saludo + " Bienvenido a mi Perfil";
+</script>
+<script>
+  const btn = document.getElementById('darkModeBtn');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    // Cambia el texto del botón
+    if(document.body.classList.contains('dark-theme')) {
+      btn.textContent = "☀️ Modo Claro";
+    } else {
+      btn.textContent = "🌙 Modo Oscuro";
+    }
+  });
+</script>
+</body>
+</html>
